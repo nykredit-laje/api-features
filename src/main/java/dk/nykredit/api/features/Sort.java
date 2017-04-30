@@ -93,8 +93,6 @@ public class Sort {
                 switch (token.tokenType) {
                     case WHITESPACE:
                         continue; // Whitespace is ignored
-                    case NUMBER:
-                        continue; // Plain numbers are not used in sort
                     case COMMA:
                         pushNewState();
                         break;
@@ -108,7 +106,7 @@ public class Sort {
                         pushMinus();
                         break;
                     default:
-                        throw new IllegalArgumentException("Unkown token " + token);
+                        throw new IllegalArgumentException("Syntax error - unsupported token " + token);
                 }
             }
 

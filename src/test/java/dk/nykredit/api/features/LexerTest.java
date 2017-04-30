@@ -16,7 +16,23 @@ import dk.nykredit.api.features.Lexer.TokenType;
 public class LexerTest {
 
     @Test
-    public void testSingleToken() {
+    public void testDate() {
+        Optional<Token> token = Lexer.newInstance("1000-10-10").nextToken();
+        Assert.assertTrue(token.isPresent());
+        Assert.assertTrue(token.get().tokenType == Lexer.TokenType.DATE);
+        Assert.assertEquals("1000-10-10", token.get().value);
+    }
+
+    @Test
+    public void testTime() {
+        Optional<Token> token = Lexer.newInstance("23:59:17").nextToken();
+        Assert.assertTrue(token.isPresent());
+        Assert.assertTrue(token.get().tokenType == Lexer.TokenType.TIME);
+        Assert.assertEquals("23:59:17", token.get().value);
+    }
+
+    @Test
+    public void testNumber() {
         Optional<Token> token = Lexer.newInstance("012").nextToken();
         Assert.assertTrue(token.isPresent());
         Assert.assertTrue(token.get().tokenType == Lexer.TokenType.NUMBER);

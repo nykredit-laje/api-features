@@ -17,7 +17,8 @@ import java.util.regex.Pattern;
     private final Matcher matcher;
 
     public static enum TokenType {
-        NUMBER("-?[0-9]+"), PLUS("\\+"), MINUS("\\-"), WHITESPACE("[ ]+"), COMMA(","), IDENTIFIER("[a-zA-Z][a-zA-Z0-9]+");
+        DATE("[0-9][0-9][0-9][0-9]-(0[0-9]|1[0-2])-(0[1-9]|([12][0-9]|3[01]))"), TIME("([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]"),
+        NUMBER("-?[0-9]+"), PLUS("\\+"), MINUS("\\-"), WHITESPACE("[ ]+"), COMMA(","), IDENTIFIER("[a-zA-Z][a-zA-Z0-9]+"), SLASH("/");
 
         public final String pattern;
 
