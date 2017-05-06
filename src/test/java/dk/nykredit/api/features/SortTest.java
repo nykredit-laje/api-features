@@ -30,7 +30,7 @@ public class SortTest {
 
     @Test
     public void testSingleAttributeDescDirection() {
-        List<Sort> list = Sort.parse("myAttribute-");
+        List<Sort> list = Sort.parse("myAttribute  -");
         Assert.assertEquals(1, list.size());
         Assert.assertEquals("myAttribute", list.get(0).getAttribute());
         Assert.assertEquals(Sort.Direction.DESC, list.get(0).getDirection());

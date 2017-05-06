@@ -1,9 +1,6 @@
 package dk.nykredit.api.features;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
-
-import dk.nykredit.api.features.Lexer.Token;
 
 /**
  * API feature temporal
@@ -22,38 +19,7 @@ public abstract class Temporal {
     }
 
     public static final Temporal parse(String input) {
-        return new Temporal.Parser().parse(input);
-    }
-
-    /**
-     * Parser of temporal input string
-     *  
-     * @author LAJE
-     */
-    private static class Parser {
-
-        private Temporal parse(String input) {
-            Lexer lexer = Lexer.newInstance(input);
-            Optional<Token> optToken = Optional.empty();
-            while ((optToken = lexer.nextToken()).isPresent()) {
-                Token token = optToken.get();
-                switch (token.tokenType) {
-                    case DATE:
-                        break;
-                    case IDENTIFIER:
-                        continue;
-                    case TIME:
-                        break;
-                    case SLASH:
-                        break;
-                    default:
-                        throw new IllegalArgumentException("Syntax error - token not allowed " + token.tokenType);
-                }
-            }
-
-            return null;
-        }
-
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 
 }
